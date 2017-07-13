@@ -1,1 +1,1 @@
-#!/bin/bash
+EmulStationPath=/home/pi/EmulationStation/

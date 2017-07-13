@@ -25,24 +25,7 @@ VERSION: V0.01
 ```
 Vous: `* LANCE * EMULSTATION *` (Lancer Emulstation)
 ```
-
-
-
-
-## Description
-Allows:
-   - Launch Emulstation
-
-NB1: Other features will come with the time  (your help is welcome)
-
-NB2: * means any word at this location
-
-VERSION: V0.01
-
-## Use
-```
-You: `* START * EMULSTATION *` (Launch Emulstation)
-```   
+``   
 
 ## Author & Contributors
 Nathan Crombez (nathan.crombez@gmail.com)
