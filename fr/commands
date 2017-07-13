@@ -1,1 +1,1 @@
-*LANCE*EMULSTATION*== say "Je lance EmulationStation, amuse toi bien" && .${EmulStationPath}emulstation&
+*LANCE*EMULSTATION*== say "Je lance EmulationStation amuse toi bien"
