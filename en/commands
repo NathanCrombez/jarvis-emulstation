@@ -1,2 +1,3 @@
 *START*EMULSTATION*==gedit&
-*WRITE*==fct_write();return
+*WRITE*== fct_write();
+
