@@ -41,7 +41,7 @@ VERSION: V0.01
 
 ## Use
 ```
-You: `* LANCE * EMULSTATION *` (Launch Emulstation)
+You: `* START * EMULSTATION *` (Launch Emulstation)
 ```   
 
 ## Author & Contributors
