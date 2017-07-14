@@ -11,8 +11,8 @@ jv_plugin_emulstation_game(){
     echo "Recherche du jeu $jeu dans le dossier ${EmulStationPath}";
     database="/home/pi/.emulationstation/gamelist.db";
     echo "Lecture du fichier SQlite $database";
-    rom_name=`sqlite3 $database 'select name from files'`
-    rom_systemid=`sqlite3 $database 'select systemid from files'`
+    rom_name=`sqlite3 $database 'select name from files where name like "%'$jeu'%"'`
+    rom_systemid=`sqlite3 $database 'select systemid from files where name like "'$jeu'%"'`
 
     echo $rom_name
     echo $rom_systemid
