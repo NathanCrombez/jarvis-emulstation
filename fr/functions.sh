@@ -7,7 +7,7 @@ jv_plugin_emulstation_launch (){
 }
 
 jv_plugin_emulstation_game(){
-    jeu = $1;
+    jeu=$1;
     echo $jeu;
 }
 
