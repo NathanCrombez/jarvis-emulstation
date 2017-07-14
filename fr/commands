@@ -1,2 +1,2 @@
 *LANCE*EMULSTATION*== say "Je lance EmulationStation amuse toi bien" && $(jv_plugin_emulstation_launch)
-*JOUER (*)== say "Je cherche le jeu "(1)""
+*JOUER À (*)== say "Je cherche le jeu "(1)""
