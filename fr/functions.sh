@@ -3,7 +3,11 @@
 # You can also use here user variables defined in your config file
 jv_plugin_emulstation_launch (){
     export DISPLAY=":0.0";
-    echo  ${EmulStationPath}emulationstation ; 
     ${EmulStationPath}emulationstation& 
+}
+
+jv_plugin_emulstation_game(){
+    jeu = $1;
+    echo $jeu;
 }
 
