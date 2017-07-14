@@ -8,6 +8,7 @@ jv_plugin_emulstation_launch (){
 
 jv_plugin_emulstation_game(){
     jeu=$1;
-    echo $jeu;
+    echo "Recherche du jeu $jeu dans le dossier $EmulStationPath;
+
 }
 
