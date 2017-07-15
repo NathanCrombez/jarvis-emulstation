@@ -23,7 +23,7 @@ jv_plugin_emulstation_game(){
     arg="\""$path_emul"/"$rom_fileid"\""
     echo $cmd_emul $arg ;
     echo "On lance le jeu";
-   /home/pi/.emulators/pisnes/snes9x "/home/pi/.emulators/pisnes/roms/./Teenage Mutant Ninja Turtles IV - Turtles in Time (USA).sfc"
+    $cmd_emul "/home/pi/.emulators/pisnes/roms/./Teenage Mutant Ninja Turtles IV - Turtles in Time (USA).sfc"
     #$cmd_emul $arg
 }
 
