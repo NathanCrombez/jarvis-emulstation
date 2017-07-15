@@ -7,6 +7,7 @@ jv_plugin_emulstation_launch (){
 }
 
 jv_plugin_emulstation_game(){
+    export DISPLAY=":0.0";
     jeu=$1;
     echo "Recherche du jeu $jeu dans le dossier ${EmulStationPath}";
     database="/home/pi/.emulationstation/gamelist.db";
