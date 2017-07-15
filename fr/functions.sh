@@ -20,9 +20,9 @@ jv_plugin_emulstation_game(){
     cmd_emul=`echo $cmd_emul |  grep -oP "(?<=snes )[^%ROM%]+"`
     path_emul=`echo $path_emul |  grep -oP "(?<=snes )[^ ]+"`
 
-    arg="\""$path_emul"/"$rom_fileid"\""
+    arg=$path_emul"/"$rom_fileid
     echo $cmd_emul $arg ;
     echo "On lance le jeu";
-    ${cmd_emul} " ${arg}"
+    ${cmd_emul} "${arg}"
 }
 
