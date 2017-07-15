@@ -13,8 +13,8 @@ jv_plugin_emulstation_game(){
     #echo "Recherche du jeu $jeu dans la database : $database";
     rom_fileid=`sqlite3 $database 'select fileid from files where name like "%'$jeu'%"'`
     rom_systemid=`sqlite3 $database 'select systemid from files where name like "%'$jeu'%"'`
-    cmd_emul=`xml_grep --text_only --cond "name" --cond "command" "'${EmulStationConfigPath}'"es_systems.cfg`
-    path_emul=`xml_grep --text_only --cond "name" --cond "path" "'${EmulStationConfigPath}'"es_systems.cfg`
+    cmd_emul=`xml_grep --text_only --cond "name" --cond "command" "${EmulStationConfigPath}"es_systems.cfg`
+    path_emul=`xml_grep --text_only --cond "name" --cond "path" "${EmulStationConfigPath}"es_systems.cfg`
     
     cmd_emul=`echo $cmd_emul |  grep -oP "(?<="$rom_systemid" )[^%ROM%]+"`
     path_emul=`echo $path_emul |  grep -oP "(?<="$rom_systemid" )[^ ]+"`
