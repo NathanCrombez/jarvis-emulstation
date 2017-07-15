@@ -9,8 +9,8 @@ jv_plugin_emulstation_launch (){
 jv_plugin_emulstation_game(){
     export DISPLAY=":0.0";
     jeu=$1;
-    echo "Recherche du jeu $jeu dans le dossier ${EmulStationPath}";
-    database="/home/pi/.emulationstation/gamelist.db";
+    database="/home/pi/.emulationstation/gamelist.db"; 
+    echo "Recherche du jeu $jeu dans la database : $database";
     echo 'select name from files where name like "%'$jeu'%"';
     rom_fileid=`sqlite3 $database 'select fileid from files where name like "%'$jeu'%"'`
     rom_systemid=`sqlite3 $database 'select systemid from files where name like "%'$jeu'%"'`
