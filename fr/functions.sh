@@ -23,6 +23,6 @@ jv_plugin_emulstation_game(){
     arg="\""$path_emul"/"$rom_fileid"\""
     echo $cmd_emul $arg ;
     echo "On lance le jeu";
-    $cmd_emul echo $arg
+    $cmd_emul ${arg}
 }
 
