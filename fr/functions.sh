@@ -13,10 +13,11 @@ jv_plugin_emulstation_game(){
     echo 'select name from files where name like "%'$jeu'%"';
     rom_name=`sqlite3 $database 'select name from files where name like "%'$jeu'%"'`
     rom_systemid=`sqlite3 $database 'select systemid from files where name like "%'$jeu'%"'`
+    rom_path=`sqlite3 $database 'select path from files where name like "%'$jeu'%"'`
     cmd_emul=`xml_grep --text_only --cond "name" --cond "command" /home/pi/.emulationstation/es_systems.cfg`
     cmd_emul=`echo $cmd_emul |  grep -oP "(?<=snes )[^(%ROM%)]+"`
 
-    echo $cmd_emul $rom_name".*"
-    $cmd_emul $rom_name".*"
+    echo $cmd_emul $rom_path"/"$rom_name".*"
+    $cmd_emul $rom_path"/"$rom_name".*"
 }
 
