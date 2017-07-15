@@ -20,6 +20,8 @@ jv_plugin_emulstation_game(){
     path_emul=`echo $path_emul |  grep -oP "(?<="$rom_systemid" )[^ ]+"`
 
     arg=$path_emul"/"$rom_fileid
+
+    #TODO : si l'emulateur et la rom existe on lance le tout et say "je lance tatata" sinon say "je ne trouve pas la rom"
     echo  ${cmd_emul} "${arg}" 
     ${cmd_emul} "${arg}" &>jv_emulstation.log
 }
