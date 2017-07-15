@@ -19,7 +19,7 @@ jv_plugin_emulstation_game(){
     cmd_emul=`echo $cmd_emul |  grep -oP "(?<=snes )[^%ROM%]+"`
     path_emul=`echo $path_emul |  grep -oP "(?<=snes )[^ ]+"`
 
-    echo $cmd_emul $path_emul"/"$rom_fileid
+    echo $cmd_emul "\""$path_emul"/"$rom_fileid"\""
     $cmd_emul "\""$path_emul"/"$rom_fileid"\""
 }
 
