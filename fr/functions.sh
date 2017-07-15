@@ -22,6 +22,6 @@ jv_plugin_emulstation_game(){
 
     arg="\""$path_emul"/"$rom_fileid"\""
     echo $cmd_emul $arg 
-    $cmd_emul (${arg})
+    $cmd_emul $arg
 }
 
