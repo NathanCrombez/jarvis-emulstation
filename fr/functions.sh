@@ -15,11 +15,8 @@ jv_pg_emulstation_game(){
     cmd_emul=`xml_grep --text_only --cond "name" --cond "command" "${EmulStationConfigPath}"es_systems.cfg`;
     path_emul=`xml_grep --text_only --cond "name" --cond "path" "${EmulStationConfigPath}"es_systems.cfg`;
    
-    echo "ok1\n";
     cmd_emul=`echo $cmd_emul |  grep -oP "(?<=("$rom_systemid")).*(?=%ROM%)"`;
-    echo "ok2\n";
     path_emul=`echo $path_emul |  grep -oP "(?<=("$rom_systemid")).*(?= )"`;
-    echo "ok3\n";
 
 
 
