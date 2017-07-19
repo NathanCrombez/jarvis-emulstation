@@ -17,17 +17,13 @@ jv_pg_emulstation_game(){
    
     cmd_emul=`echo $cmd_emul |  grep -oP "(?<=("$rom_systemid")).*(?=%ROM%)"`;
     path_emul=`echo $path_emul |  grep -oP "(?<=("$rom_systemid")).*(?= )"`;
-
-
-
     rom_path=$path_emul"/"$rom_fileid
 
-    echo  ${cmd_emul} "${rom_path}"
-   # if [ -e ${cmd_emul} ] && [ -e ${rom_path} ] ; then
+    if [ -e ${cmd_emul} ] && [ -e ${rom_path} ] ; then
 	echo "Amuse toi bien";
 	${cmd_emul} "${rom_path}" &>jv_emulstation.log
     #else
-#	echo  "Je ne trouve pas lémulateur ou la rom"; 
- #   fi
+	echo  "Je ne trouve pas lémulateur ou la rom"; 
+    fi
 }
 
