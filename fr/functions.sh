@@ -21,6 +21,7 @@ jv_pg_emulstation_game(){
 
 
 
+
     rom_path=$path_emul"/"$rom_fileid
 
     echo  ${cmd_emul} "${rom_path}"
