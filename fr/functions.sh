@@ -21,7 +21,7 @@ jv_pg_emulstation_game(){
 
     if [ -e ${cmd_emul} ] ; then
 	echo "Amuse toi bien";
-	${cmd_emul} "${rom_path}" & >jv_emulstation.log
+	${cmd_emul} "${rom_path}" &>jv_emulstation.log
     else
 	echo  "Je ne trouve pas lémulateur ou la rom"; 
     fi
