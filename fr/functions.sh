@@ -20,6 +20,7 @@ jv_pg_emulstation_game(){
     path_emul=`echo $path_emul |  grep -oP "(?<=("$rom_systemid" ))[^ ]+"`
 
 
+
     rom_path=$path_emul"/"$rom_fileid
 
     echo  ${cmd_emul} "${rom_path}"
