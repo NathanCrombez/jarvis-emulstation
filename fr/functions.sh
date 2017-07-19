@@ -20,8 +20,8 @@ jv_pg_emulstation_game(){
 
     rom_path=$path_emul"/"$rom_fileid
 
+    echo  ${cmd_emul} "${rom_path}"
     if [ -e ${cmd_emul} ] && [ -e ${rom_path} ] ; then
-	#echo  ${cmd_emul} "${rom_path}"
 	echo "Amuse toi bien";
 	${cmd_emul} "${rom_path}" &>jv_emulstation.log
     else
