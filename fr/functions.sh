@@ -10,15 +10,16 @@ jv_pg_emulstation_game(){
     export DISPLAY=":0.0";
     jeu=$1;
     database=${EmulStationConfigPath}"gamelist.db"; 
-    rom_fileid=`sqlite3 $database 'select fileid from files where name like "%'$jeu'%"'`
-    rom_systemid=`sqlite3 $database 'select systemid from files where name like "%'$jeu'%"'`
-    cmd_emul=`xml_grep --text_only --cond "name" --cond "command" "${EmulStationConfigPath}"es_systems.cfg`
-    path_emul=`xml_grep --text_only --cond "name" --cond "path" "${EmulStationConfigPath}"es_systems.cfg`
+    rom_fileid=`sqlite3 $database 'select fileid from files where name like "%'$jeu'%"'`;
+    rom_systemid=`sqlite3 $database 'select systemid from files where name like "%'$jeu'%"'`;
+    cmd_emul=`xml_grep --text_only --cond "name" --cond "command" "${EmulStationConfigPath}"es_systems.cfg`;
+    path_emul=`xml_grep --text_only --cond "name" --cond "path" "${EmulStationConfigPath}"es_systems.cfg`;
    
-
-    cmd_emul=`echo $cmd_emul |  grep -oP "(?<=("$rom_systemid" )).*(?=%ROM%)"`
-    path_emul=`echo $path_emul |  grep -oP "(?<=("$rom_systemid" )).*(?= )"`
-
+    echo "ok1\n";
+    cmd_emul=`echo $cmd_emul |  grep -oP "(?<=("$rom_systemid")).*(?=%ROM%)"`;
+    echo "ok2\n";
+    path_emul=`echo $path_emul |  grep -oP "(?<=("$rom_systemid")).*(?= )"`;
+    echo "ok3\n";
 
 
 
