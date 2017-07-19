@@ -14,7 +14,10 @@ jv_pg_emulstation_game(){
     rom_systemid=`sqlite3 $database 'select systemid from files where name like "%'$jeu'%"'`
     cmd_emul=`xml_grep --text_only --cond "name" --cond "command" "${EmulStationConfigPath}"es_systems.cfg`
     path_emul=`xml_grep --text_only --cond "name" --cond "path" "${EmulStationConfigPath}"es_systems.cfg`
-    
+   
+    echo ${cmd_emul}
+    echo ${path_emul}
+
     cmd_emul=`echo $cmd_emul |  grep -oP "(?<="$rom_systemid" )[^%ROM%]+"`
     path_emul=`echo $path_emul |  grep -oP "(?<="$rom_systemid" )[^ ]+"`
 
