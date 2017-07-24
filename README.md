@@ -12,18 +12,25 @@ For multi-language plugin:
 
 ## Description
 Permet de:
-   - Lancer Emulstation
+   - Lancer Emulationstation
+   - Lancer une rom spécifique (sans ce soucier de l'emulateur etc..)
+
+Pour le moment, jarvis n'utilise que le dernier mot de la commande permettant de lancer une rom
+spécifique. Jarvis cherche dans la base données d'EmulationStation, les roms dont le titre contient
+ce mot. Si plusieurs roms sont trouvés Jarvis lance le premier de la liste. Des améliorations
+arriveront très prochainement.  
+
 
 NB1: D'autres fonctionnalités viendront au fur et à mesure (votre contribution est la bienvenue)
-
 NB2: * signifie n'importe quel mot à cet endroit
 
-VERSION: V0.01
+VERSION: V0.1
 
 
 ## Usage
 ```
-Vous: `* LANCE * EMULSTATION *` (Lancer Emulstation)
+Vous: `* LANCE * EMULATIONSTATION *` (Lancer EmulationStation)
+Vous: `* JOUER * (*)` (Lancer une rom spécifique)
 ```
 ``   
 
