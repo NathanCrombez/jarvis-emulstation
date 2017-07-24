@@ -32,7 +32,6 @@ VERSION: V0.1
 Vous: `* LANCE * EMULATIONSTATION *` (Lancer EmulationStation)
 Vous: `* JOUER * (*)` (Lancer une rom spécifique)
 ```
-``   
 
 ## Author & Contributors
 Nathan Crombez (nathan.crombez@gmail.com)
