@@ -11,6 +11,11 @@ For multi-language plugin:
 -->
 
 ## Description
+EmulationStation est un front-end graphique et personnalisable qui vous permet d'accéder à toutes vos roms et emulateurs en un seul endroit. Ce plugin Jarvis s'appuie sur la base de données d'EmulationStation pour trouver et lancer vos roms par simple commandes vocales. 
+
+
+
+
 Permet de:
    - Lancer Emulationstation
    - Lancer une rom spécifique (sans ce soucier de l'emulateur etc..)
@@ -18,7 +23,7 @@ Permet de:
 
 TODO List :
     - Pour le moment, jarvis n'utilise que le dernier mot de la commande permettant de lancer une rom
-spécifique. Jarvis cherche dans la base données d'EmulationStation, les roms dont le titre contient
+spécifique. Jarvis cherche dans la base de données d'EmulationStation, les roms dont le titre contient
 ce mot. Si plusieurs roms sont trouvés Jarvis lance le premier de la liste. Des améliorations
 arriveront très prochainement.  
     - Version anglaise.
