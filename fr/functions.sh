@@ -18,11 +18,11 @@ jv_pg_emulstation_game(){
     rom_path=`xmllint --xpath "systemList/system[name/text() = '$rom_sys']/path/text()" ${EmulStationConfigPath}es_systems.cfg`;
     emul_cmd=${emul_cmd_[0]}
 
-    cmd_cpt=$emul_cmd" "$rom_path"/"$rom_name
+    cmd_cpt=$emul_cmd" \""$rom_path"/"$rom_name\"
 
     echo $cmd_cpt
 
-    $cmd_cpt &>jv_emulstation.log
+    $cmd_cpt &
 
 
 }
