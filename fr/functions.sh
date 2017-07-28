@@ -20,10 +20,9 @@ jv_pg_emulstation_game(){
 
     cmd_cpt=$emul_cmd" \""$rom_path"/"$rom_name\"
 
-    echo $cmd_cpt
+    #echo $cmd_cpt
+    $cmd_cpt 
 
-    $cmd_cpt &
-
-
+    echo Amuse toi bien;
 }
 
