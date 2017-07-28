@@ -22,5 +22,6 @@ jv_pg_emulstation_game(){
 
     #echo $cmd_cpt
     eval $cmd_cpt &>jv_emulstation.log 
+    echo "Amuse toi bien";
 }
 
