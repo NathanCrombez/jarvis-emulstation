@@ -10,20 +10,20 @@ jv_pg_emulstation_game(){
     export DISPLAY=":0.0";
     jeu=$1;
     database=${EmulStationConfigPath}"gamelist.db"; 
-    rom_fileid=`sqlite3 $database 'select fileid from files where name like "%'$jeu'%"'`;
-    rom_systemid=`sqlite3 $database 'select systemid from files where name like "%'$jeu'%"'`;
-    cmd_emul=`xml_grep --text_only --cond "name" --cond "command" "${EmulStationConfigPath}"es_systems.cfg`;
-    path_emul=`xml_grep --text_only --cond "name" --cond "path" "${EmulStationConfigPath}"es_systems.cfg`;
-   
-    cmd_emul=`echo $cmd_emul |  grep -oP "(?<=("$rom_systemid")).*(?=%ROM%)"`;
-    path_emul=`echo $path_emul |  grep -oP "(?<=("$rom_systemid")).*(?= )"`;
-    rom_path=$path_emul"/"$rom_fileid
+    s_rom_filesystemid=`sqlite3 $database 'select fileid,systemid from files where name like "%'$jeu'%"'`;
+    IFS='|' read -r -a a_rom_filesystemid <<< "$s_rom_filesystemid"
+    rom_name=${a_rom_filesystemid[0]}
+    rom_sys=${a_rom_filesystemid[1]}
+    emul_cmd_=(`xmllint --xpath "systemList/system[name/text() = '$rom_sys']/command/text()" ${EmulStationConfigPath}es_systems.cfg`);
+    rom_path=`xmllint --xpath "systemList/system[name/text() = '$rom_sys']/path/text()" ${EmulStationConfigPath}es_systems.cfg`;
+    emul_cmd=${emul_cmd_[0]}
 
-    if [ -e ${cmd_emul} ] ; then
-	echo "Amuse toi bien";
-	${cmd_emul} "${rom_path}" &>jv_emulstation.log
-    else
-	echo  "Je ne trouve pas lémulateur ou la rom"; 
-    fi
+    cmd_cpt=$emul_cmd" "\"$rom_path"/"$rom_name\"
+
+    echo $cmd_cpt
+
+    $cmd_cpt &>jv_emulstation.log
+
+
 }
 
