@@ -1,2 +1,2 @@
 *LANCE*EMULATIONSTATION*== say "Amuse toi bien" && $(jv_pg_emulstation_launch)
-*JOUER* (*)== say "$(jv_pg_emulstation_game "(1)")"
+*JOUER* (*)== say "Amuse toi bien" &&  $(jv_pg_emulstation_game "(1)")
