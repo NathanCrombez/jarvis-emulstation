@@ -3,7 +3,7 @@
 # You can also use here user variables defined in your config file
 jv_pg_emulstation_launch (){
     export DISPLAY=":0.0";
-    ${EmulStationPath}emulationstation& 
+    ${EmulStationPath}emulationstation & 
 }
 
 jv_pg_emulstation_game(){
@@ -22,6 +22,6 @@ jv_pg_emulstation_game(){
 
     #echo $cmd_cpt
     eval $cmd_cpt &>jv_emulstation.log 
-    echo "Amuse toi bien";
+    echo "Amuse toi bien"
 }
 
