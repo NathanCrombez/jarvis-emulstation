@@ -35,33 +35,17 @@ jv_pg_emulstation_hasardgame(){
     nbsystemsb=`expr $nbsystems - 1`;
     rnd_sys=`shuf -i 0-$nbsystemsb -n 1`;
 
-    #echo " -> "${systems[0]}
-    #echo " -> "${systems[1]}
-
-    #echo "système choisie par lana" $rnd_sys
-    #echo " -> "${systems[$rnd_sys]}
 
     rom_path=`xmllint --xpath "systemList/system[name/text() = '${systems[$rnd_sys]}']/path/text()" ${EmulStationConfigPath}es_systems.cfg`;
     emul_cmd_=(`xmllint --xpath "systemList/system[name/text() = '${systems[$rnd_sys]}']/command/text()" ${EmulStationConfigPath}es_systems.cfg`);
     emul_cmd=${emul_cmd_[0]}
-    #echo "cmd emul : "$emul_cmd
 
     nbroms=`sqlite3 $database 'select count(*) from files where systemid is "'${systems[$rnd_sys]}'"'`;
     nbromsb=`expr $nbroms - 1`
     rnd_rom=`shuf -i 0-$nbromsb -n 1`
     rom_name=`sqlite3 $database 'select fileid from files limit 1 offset '$rnd_rom''`;
 
-    #echo "nombre de roms possible : "$nbroms
-    #echo "rnd rom :"$rnd_rom
-    #echo "rom choisie : "$rom_name
-    #echo "chement de la rom choisie : "$rom_path
-
     cmd_cpt=$emul_cmd" \""$rom_path"/"$rom_name\"
-    #echo "###################################"
-    #echo "###################################"
-    #echo "+ LA COMMANDE : "  $cmd_cpt
-    #echo "###################################"
-    #echo "###################################"
     
     eval $cmd_cpt > /dev/null 2>&1 & 
 }
