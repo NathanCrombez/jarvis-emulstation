@@ -58,11 +58,11 @@ jv_pg_emulstation_hasardgame(){
     #echo "chement de la rom choisie : "$rom_path
 
     cmd_cpt=$emul_cmd" \""$rom_path"/"$rom_name\"
-    echo "###################################"
-    echo "###################################"
-    echo "+ LA COMMANDE : "  $cmd_cpt
-    echo "###################################"
-    echo "###################################"
+    #echo "###################################"
+    #echo "###################################"
+    #echo "+ LA COMMANDE : "  $cmd_cpt
+    #echo "###################################"
+    #echo "###################################"
     
     eval $cmd_cpt > /dev/null 2>&1 & 
 }
