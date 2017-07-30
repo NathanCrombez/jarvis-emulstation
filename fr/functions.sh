@@ -41,8 +41,7 @@ jv_pg_emulstation_hasardgame(){
     #echo "système choisie par lana" $rnd_sys
     #echo " -> "${systems[$rnd_sys]}
 
-    rom_path=`xmllint --xpath "systemList/system[name/text() = '${systems[$rnd_sys]}']/path/text()";
-    ${EmulStationConfigPath}es_systems.cfg`;
+    rom_path=`xmllint --xpath "systemList/system[name/text() = '${systems[$rnd_sys]}']/path/text()" ${EmulStationConfigPath}es_systems.cfg`;
     emul_cmd_=(`xmllint --xpath "systemList/system[name/text() = '${systems[$rnd_sys]}']/command/text()" ${EmulStationConfigPath}es_systems.cfg`);
     emul_cmd=${emul_cmd_[0]}
     #echo "cmd emul : "$emul_cmd
