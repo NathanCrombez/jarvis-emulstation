@@ -3,7 +3,7 @@
 # You can also use here user variables defined in your config file
 jv_pg_emulstation_launch (){
     export DISPLAY=":0.0";
-    ${EmulStationPath}emulationstation & 
+    ${EmulStationPath}emulationstation > /dev/null 2>&1 & 
 }
 
 jv_pg_emulstation_game(){
@@ -46,6 +46,6 @@ jv_pg_emulstation_hasardgame(){
     rom_name=`sqlite3 $database 'select fileid from files limit 1 offset '$rnd_rom''`;
 
     cmd_cpt=$emul_cmd" \""$rom_path"/"$rom_name\"
-    
+    echo $cmd_cpt; 
     eval $cmd_cpt > /dev/null 2>&1 & 
 }
