@@ -27,29 +27,29 @@ jv_pg_emulstation_game(){
 jv_pg_emulstation_hasardgame(){
     export DISPLAY=":0.0";
     database=${EmulStationConfigPath}"gamelist.db"; 
-    nbsystems=`xmllint --xpath "count(//fullname)" ${EmulStationConfigPath}es_systems.cfg`
-    systems=`xmllint --xpath "//name" ${EmulStationConfigPath}es_systems.cfg`
-    systems=`echo ${systems} | sed -e 's/[<>]//g'| sed -e 's/name//g'`
-    IFS='/' read -r -a systems <<< "$systems"
-    nbsystemsb=`expr $nbsystems - 1`
-    rnd_sys=`shuf -i 0-$nbsystemsb -n 1`
-
+    nbsystems=`xmllint --xpath "count(//fullname)" ${EmulStationConfigPath}es_systems.cfg`;
+ 
     echo $nbsystems "systèmes trouvés :"
+    
+    systems=`xmllint --xpath "//name" ${EmulStationConfigPath}es_systems.cfg`;
+    systems=`echo ${systems} | sed -e 's/[<>]//g'| sed -e 's/name//g'`;
+    IFS='/' read -r -a systems <<< "$systems";
+    nbsystemsb=`expr $nbsystems - 1`;
+    rnd_sys=`shuf -i 0-$nbsystemsb -n 1`;
+
     echo " -> "${systems[0]}
     echo " -> "${systems[1]}
 
     echo "système choisie par lana" $rnd_sys
     echo " -> "${systems[$rnd_sys]}
 
-    rom_path=`xmllint --xpath "systemList/system[name/text() = '${systems[$rnd_sys]}']/path/text()"
+    rom_path=`xmllint --xpath "systemList/system[name/text() = '${systems[$rnd_sys]}']/path/text()";
     ${EmulStationConfigPath}es_systems.cfg`;
-    emul_cmd_=(`xmllint --xpath "systemList/system[name/text() =
-    '${systems[$rnd_sys]}']/command/text()" ${EmulStationConfigPath}es_systems.cfg`);
+    emul_cmd_=(`xmllint --xpath "systemList/system[name/text() = '${systems[$rnd_sys]}']/command/text()" ${EmulStationConfigPath}es_systems.cfg`);
     emul_cmd=${emul_cmd_[0]}
     echo "cmd emul : "$emul_cmd
 
-    nbroms=`sqlite3 $database 'select count(*) from files where systemid is
-    "'${systems[$rnd_sys]}'"'`;
+    nbroms=`sqlite3 $database 'select count(*) from files where systemid is "'${systems[$rnd_sys]}'"'`;
     nbromsb=`expr $nbroms - 1`
     rnd_rom=`shuf -i 0-$nbromsb -n 1`
     rom_name=`sqlite3 $database 'select fileid from files limit 1 offset '$rnd_rom''`;
