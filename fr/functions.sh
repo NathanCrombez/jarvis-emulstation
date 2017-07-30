@@ -26,6 +26,7 @@ jv_pg_emulstation_game(){
 
 jv_pg_emulstation_hasardgame(){
     export DISPLAY=":0.0";
+    echo "START"
     database=${EmulStationConfigPath}"gamelist.db"; 
     nbsystems=`xmllint --xpath "count(//fullname)" ${EmulStationConfigPath}es_systems.cfg`;
  
