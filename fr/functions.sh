@@ -24,3 +24,28 @@ jv_pg_emulstation_game(){
     eval $cmd_cpt > /dev/null 2>&1 & 
 }
 
+jv_pg_emulstation_hasardgame(){
+    export DISPLAY=":0.0";
+    database=${EmulStationConfigPath}"gamelist.db"; 
+    nbsystems=`xmllint --xpath "count(//fullname)" ${EmulStationConfigPath}es_systems.cfg`
+    systems=`xmllint --xpath "//name" ${EmulStationConfigPath}es_systems.cfg`
+    systems=`echo ${systems} | sed -e 's/[<>]//g'| sed -e 's/name//g'`
+    IFS='/' read -r -a systems <<< "$systems"
+    nbsystemsb=`expr $nbsystems - 1`
+    rnd_sys=`shuf -i 0-$nbsystemsb -n 1`
+
+    rom_path=`xmllint --xpath "systemList/system[name/text() = '${systems[$rnd_sys]}']/path/text()"
+    ${EmulStationConfigPath}es_systems.cfg`;
+    emul_cmd_=(`xmllint --xpath "systemList/system[name/text() = '${systems[$rnd_sys]}']/command/text()"
+    ${EmulStationConfigPath}es_systems.cfg`);
+    emul_cmd=${emul_cmd_[0]}
+
+    nbroms=`sqlite3 $database 'select count(*) from files where systemid is "'${systems[$rnd_sys]}'"'`;
+    nbromsb=`expr $nbroms - 1`
+    rnd_rom=`shuf -i 0-$nbromsb -n 1`
+    rom_name=`sqlite3 $database 'select fileid from files limit 1 offset '$rnd_rom''`;
+
+    cmd_cpt=$emul_cmd" \""$rom_path"/"$rom_name\"
+    echo "+ LA COMMANDE : "  $cmd_cpt
+    eval $cmd_cpt &>jv_emulstation.log
+}

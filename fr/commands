@@ -1,2 +1,3 @@
 *LANCE*EMULATIONSTATION*|*LANCE*EMULSTATION*|*LANCE*EMULATION*STATION*|*LANCE*EMULE*STATION*== say "Amuse toi bien" && $(jv_pg_emulstation_launch)
 *JOUER* (*)== $(jv_pg_emulstation_game "(1)")
+*JOUER*HASARD== $(jv_pg_emulstation_hasardgame)
