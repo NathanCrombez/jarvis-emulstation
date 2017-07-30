@@ -16,7 +16,7 @@ EmulationStation est un front-end graphique et personnalisable qui vous permet d
 Permet de:
    - Lancer Emulationstation
    - Lancer une rom spécifique (sans ce soucier de l'emulateur etc..)
-
+   - Vous avez trop de roms et ne savez pas à quoi jouer ? Jarvis vous lancer un jeu au hasard
 
 [![YOUTUBE VIDEO](https://img.youtube.com/vi/0VZatYSYoYs/0.jpg)](https://www.youtube.com/watch?v=0VZatYSYoYs)
 
@@ -33,13 +33,14 @@ arriveront très prochainement.
 
 NB : D'autres fonctionnalités viendront au fur et à mesure (votre contribution est la bienvenue)
 
-VERSION: V0.1
+VERSION: V1.1
 
 
 ## Usage
 ```
 Vous: `* LANCE * EMULATIONSTATION *` (Lancer EmulationStation)
 Vous: `* JOUER * (*)` (Lancer une rom spécifique)
+Vous: `* SAIS PAS * JOUER` (Lancer une roms au hasard)
 ```
 
 ## Author & Contributors
